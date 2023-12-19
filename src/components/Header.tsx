@@ -100,7 +100,7 @@ export default function Header() {
             </div>
             <Link onClick={savedLinkClick} className="text-warning fs-5 py-2 text-decoration-none header-link" to="/saved/1"><span className="fa-regular fa-bookmark"></span> Guardados</Link>
             <Link onClick={alternateIsMenuOpened} className="text-primary fs-5 py-2 text-decoration-none header-link" to="/movies"><span className="fa-sharp fa-solid fa-film"></span> Cartelera</Link>
-            <p onClick={() => setCategoriesActived(!categoriesActived)} className="m-0 text-danger fs-5 py-2 text-decoration-none header-link"><span className={`fa-solid fa-caret-${categoriesActived ? "up" : "down"}`}></span> Categorias</p>
+            <p onClick={() => setCategoriesActived(!categoriesActived)} className="m-0 text-danger fs-5 py-2 text-decoration-none header-link"><span className={`fa-solid fa-caret-${categoriesActived ? "up" : "down"}`}></span> Categorías</p>
             {categoriesActived && <div className="overflow-auto">
               {categories && categories.genres.map(genre => {
                 return <div className="category rounded text-center my-1 py-1"><Link to={`/category/${genre.id}/1`} className="h7 m-0 text-decoration-none text-black" onClick={alternateIsMenuOpened}>{categoryTranslator[genre.id as keyof ICategoryTranslate]}</Link></div>
@@ -117,7 +117,7 @@ export default function Header() {
       <section className="center-section col-lg-4 position-relative d-none align-items-center justify-content-around d-lg-flex">
         <Link onClick={savedLinkClick} className="text-black text-decoration-none header-link" to="/saved/1"><span className="fa-regular fa-bookmark"></span> Guardados</Link>
         <Link className="text-black text-decoration-none header-link" to="/movies"><span className="fa-sharp fa-solid fa-film"></span> Cartelera</Link>
-        <p onClick={() => setCategoriesActived(!categoriesActived)} className="m-0 text-black text-decoration-none header-link"><span className={`fa-solid fa-caret-${categoriesActived ? "up" : "down"}`}></span> Categorias</p>
+        <p onClick={() => setCategoriesActived(!categoriesActived)} className="m-0 text-black text-decoration-none header-link"><span className={`fa-solid fa-caret-${categoriesActived ? "up" : "down"}`}></span> Categorías</p>
         {categoriesActived && <div className="categories position-absolute rounded d-flex flex-column align-items-center px-2 py-2">
           {categories && categories.genres.map(genre => {
             return <div className="category rounded text-center my-1 py-1"><Link to={`/category/${genre.id}/1`} className="h7 m-0 text-decoration-none text-black">{categoryTranslator[genre.id as keyof ICategoryTranslate]}</Link></div>

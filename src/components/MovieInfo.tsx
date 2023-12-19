@@ -76,7 +76,7 @@ export default function MovieInfo() {
   return (
     <main>
       <section className="backdrop-image w-100 position-relative">
-        <div className="w-100 d-flex justify-content-center align-items-center">
+        <div className="w-100 h-100 d-flex justify-content-center align-items-center backdrop-container">
           {movieData?.backdrop_path ? <img src={`https://image.tmdb.org/t/p/original${movieData.backdrop_path}`} className="d-block w-100" alt={movieData.title} /> : <span className="fa-regular fa-image text-white fs-1"></span>}
         </div>
       </section>
@@ -105,11 +105,11 @@ export default function MovieInfo() {
             <div className={`d-flex ${isShowMoreOverview && "d-md-none"} d-lg-flex flex-lg-row flex-column`}>
               <div className="d-flex pe-5 column-1">
                 <div className="d-flex flex-column pe-3">
-                  <strong className="py-2">Duracion</strong>
+                  <strong className="py-2">Duración</strong>
                   <strong className="py-2">Estreno</strong>
-                  <strong className="py-2">Recaudacion</strong>
+                  <strong className="py-2">Recaudación</strong>
                   <strong className="py-2">Director</strong>
-                  <strong className="py-2">Generos</strong>
+                  <strong className="py-2">Géneros</strong>
                 </div>
                 <div className="d-flex flex-column">
                   {movieData ? <>

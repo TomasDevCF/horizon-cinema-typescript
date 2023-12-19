@@ -35,7 +35,7 @@ export default function OnlyMoviesPages({ pageType }: Props) {
       fetchByPageType(`https://api.themoviedb.org/3/search/movie?query=${query}&language=es-AR`)
       if (query && query.length >= 23) {
         navigate("/movies")
-        toast.error('Ingersa una busqueda menor a 23 caracteres.', {
+        toast.error('Ingresa una búsqueda menor a 23 caracteres', {
           position: "top-right",
           autoClose: 1400,
           progress: undefined,
@@ -69,7 +69,7 @@ export default function OnlyMoviesPages({ pageType }: Props) {
                         setCarouselData(r.results.slice(0, 3))
                       }
                     }
-                    setData([...r.results, ...r2.results, ...r3.results])
+                    setData([...r.results, ...r2.results.slice(1), ...r3.results.slice(1)])
                     setTotalPages(Math.round(r3.total_pages / 3))
                   })
               })
@@ -100,10 +100,10 @@ export default function OnlyMoviesPages({ pageType }: Props) {
   }, [data]);
 
   function chooseText(): string {
-    return pageType === "saved" ? "Peliculas guardadas"
-      : pageType === "category" && category_id ? `Peliculas de la categoria: "${categoryTranslator[parseInt(category_id) as keyof ICategoryTranslate]}"`
-        : pageType === "search" ? `Peliculas para tu busqueda: "${query}"`
-          : pageType === "movieList" ? `Peliculas ${movie_list_name === "popular" ? "mas populares" : movie_list_name === "top_rated" ? "mejores calificadas" : movie_list_name === "upcoming" ? "por salir" : `segun tu ultima pelicula (${lastTitle})`}`
+    return pageType === "saved" ? "Películas guardadas"
+      : pageType === "category" && category_id ? `Películas de la categoría: "${categoryTranslator[parseInt(category_id) as keyof ICategoryTranslate]}"`
+        : pageType === "search" ? `Películas para tu búsqueda: "${query}"`
+          : pageType === "movieList" ? `Películas ${movie_list_name === "popular" ? "mas populares" : movie_list_name === "top_rated" ? "mejores calificadas" : movie_list_name === "upcoming" ? "por salir" : `según tu última película (${lastTitle})`}`
             : pageType === "casting" && data ? `Reparto`
               : `Recomendadas`
   }

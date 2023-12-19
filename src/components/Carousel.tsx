@@ -70,11 +70,11 @@ export default function Carousel({ carouselData, pageType }: Props) {
         <h3>{carouselData ? carouselData[actualCarouselItem].title : <Skeleton width={300} />}</h3>
         <p className="text-center d-none d-md-block w-75 movie-overview">{carouselData ? carouselData[actualCarouselItem].overview : <Skeleton count={5} />}</p>
         <div className="w-75 d-flex justify-content-evenly align-items-center flex-md-row flex-column buttons-carousel">
-          {carouselData && <Link to={`/movie/${carouselData[actualCarouselItem].id}`} className="btn btn-secondary col-9 col-md-auto mb-1"><span className="fa-solid fa-play"></span> Ver mas informacion</Link>}
+          {carouselData && <Link to={`/movie/${carouselData[actualCarouselItem].id}`} className="btn btn-secondary col-9 col-md-auto mb-1"><span className="fa-solid fa-play"></span> Ver mas información</Link>}
           <div className={`stars d-none align-items-center d-lg-flex`}>
             {carouselData ? calculateStars(carouselData[actualCarouselItem].vote_average).map(star => star) : <SkeletonTheme baseColor="orange" highlightColor="yellow"><Skeleton width={100} height={25} /></SkeletonTheme>}
           </div>
-          {carouselData && <Link to="/movies" className="btn btn-primary col-9 col-md-auto mt-1"><span className="fa-solid fa-film"></span> Ver peliculas</Link>}
+          {carouselData && <Link to="/movies" className="btn btn-primary col-9 col-md-auto mt-1"><span className="fa-solid fa-film"></span> Ver películas</Link>}
         </div>
       </div>
     </section>

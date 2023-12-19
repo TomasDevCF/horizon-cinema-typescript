@@ -250,6 +250,10 @@ header {
   aspect-ratio: 18/10;
 }
 
+.backdrop-image {
+  aspect-ratio: 18/10;
+}
+
 @media (max-width: 992px) {
   .movie-overview {
     white-space: nowrap;

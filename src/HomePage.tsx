@@ -46,9 +46,9 @@ function HomePage() {
       <section className="other-options bg-transparent w-100 d-flex flex-column align-items-center pt-3">
         <span className="fa-solid fa-arrow-down-long text-white fs-3"></span>
         <div className="movies-options pt-1 pb-3 d-flex justify-content-around col-lg-10 row">
-          <MoviesOption URL='https://api.themoviedb.org/3/movie/top_rated?language=es-AR&page=1' topText="Peliculas mejores calificadas"/>
-          <MoviesOption URL='https://api.themoviedb.org/3/movie/popular?language=es-AR&page=1' topText="Peliculas mas populares"/>
-          <MoviesOption URL='https://api.themoviedb.org/3/movie/upcoming?language=es-AR&page=1' topText="Peliculas de estreno"/>
+          <MoviesOption URL='https://api.themoviedb.org/3/movie/top_rated?language=es-AR&page=1' topText="Peliculas mejores calificadas"  link="/movies/top_rated/1"/>
+          <MoviesOption URL='https://api.themoviedb.org/3/movie/popular?language=es-AR&page=1' topText="Peliculas mas populares" link="/movies/popular/1"/>
+          <MoviesOption URL='https://api.themoviedb.org/3/movie/upcoming?language=es-AR&page=1' topText="Peliculas de estreno" link="/movies/upcoming/1"/>
         </div>
       </section>
     </main>
