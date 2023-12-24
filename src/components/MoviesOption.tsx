@@ -24,8 +24,10 @@ export default function MoviesOption({topText, URL, link}: Props) {
       <div className="top-text pt-2 pb-3 w-100">
         <p className="text-black text-decoration-none py-1 w-100 px-2">{topText}</p>
       </div>
-      <div className="movie-photo">
-        <img src={`https://image.tmdb.org/t/p/original${movie && movie.poster_path}`} alt={movie?.title} />
+      <div className="movie-photo d-flex align-items-center justify-content-center">
+        
+        {movie ? <img src={`https://image.tmdb.org/t/p/original${movie && movie.poster_path}`} alt={movie?.title} />
+        : <span className="fa-solid fa-image text-white fs-1"></span>}
       </div>
     </Link>
   )

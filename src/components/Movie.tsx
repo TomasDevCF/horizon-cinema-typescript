@@ -53,7 +53,7 @@ export default function Movie({id, image, rating, title, backdrop_path, overview
   }
 
   return (
-    <div className="padding-container col-lg-2 col-md-4 col-sm-6 col-12 px-4 px-lg-1 py-1">
+    <div className="padding-container col-lg-2 col-md-4 col-6 px-1 py-1">
       <div className="position-relative movie w-100 p-0 overflow-hidden" >
         <div className=" image-container d-flex justify-content-center align-items-center" onClick={() => navigate(`/movie/${id}`)} >
             {image ? <img src={`https://image.tmdb.org/t/p/w300${image}`} className="movie-image" alt={title} width="100%"/> : <span className="fa-solid fa-image text-white fs-1"></span>}

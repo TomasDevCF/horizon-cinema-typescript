@@ -28,9 +28,6 @@ export default function OnlyMoviesPages({ pageType }: Props) {
   const navigate = useNavigate()
 
   function loadData() {
-    setTotalPages(1)
-    setData(null)
-    setCarouselData(null)
     if (pageType === "search") {
       fetchByPageType(`https://api.themoviedb.org/3/search/movie?query=${query}&language=es-AR`)
       if (query && query.length >= 23) {
@@ -116,18 +113,26 @@ export default function OnlyMoviesPages({ pageType }: Props) {
         } else {
           setCarouselData(saved_movies.slice(0, 3))
         }
+        console.log(saved_movies);
         setTotalPages(1)
         setData(null)
         setData(saved_movies?.slice(60 * (parseInt(page) - 1), 60 * parseInt(page)))
         setTotalPages(Math.floor(saved_movies?.length / 60))
       } else if ((!saved_movies || saved_movies.length == 0) && pageType === "saved") {
         navigate("/movies")
-
       }
     } else {
       loadData()
     }
   }, [category_id, query, page, pageType, saved_movies]);
+
+  useEffect(() => {
+    if (pageType !== "saved") {
+      setTotalPages(1)
+      setData(null)
+      setCarouselData(null)
+    }
+  }, [pageType, page, category_id, query]);
 
   function calculateLinkPath(quantityOnSum: number): string {
     if (page) {
@@ -152,7 +157,7 @@ export default function OnlyMoviesPages({ pageType }: Props) {
 
   return (
     <main className={`w-100 ${(pageType === "casting" || pageType === "movieList" || pageType === "recommended") && "padding-header"}`}>
-      {(pageType === "category" || pageType === "saved" || pageType === "search") && <Carousel carouselData={carouselData} pageType={pageType}/>}
+      {(pageType === "category" || pageType === "saved" || pageType === "search") && <Carousel carouselData={carouselData} pageType={pageType} />}
       <div className="d-flex justify-content-between flex-md-row flex-column align-items-center text-md-start text-center pt-3 px-2">
         <Link className="fs-5 h-75 d-block btn btn-primary my-md-0 my-2" to={movie_id ? `/movie/${movie_id}` : "/movies"}>Regresar</Link>
         <h3 className="text-white">{chooseText()}</h3>
@@ -184,7 +189,7 @@ export default function OnlyMoviesPages({ pageType }: Props) {
               />
             )
           }
-        }) : <><SkeletonMovieRow/><SkeletonMovieRow/></>}
+        }) : <><SkeletonMovieRow /><SkeletonMovieRow /></>}
       </section>
       {page && <section className="pagination-section px-3">
         <nav aria-label="Page navigation">

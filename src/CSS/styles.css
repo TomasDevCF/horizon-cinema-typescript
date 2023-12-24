@@ -103,17 +103,25 @@ header {
   color: rgb(54, 54, 54);
 }
 
-.movie-photo img {
+.movie-photo {
   border: 4px solid rgb(162, 162, 162);
   border-radius: 10px;
   object-fit: cover;
   aspect-ratio: 10/15;
-  width: 100%;
-}
-
-.movie-photo {
   cursor: pointer;
   transition: .07s ease-in-out scale;
+  width: 100%;
+  background-color: gray;
+}
+
+.movie-option {
+  text-decoration: none !important;
+}
+
+.movie-photo img {
+  width: 100%;
+  border-radius: 6px;
+  height: 100%;
 }
 
 .top-text p {
@@ -242,7 +250,9 @@ header {
 
 .categories-menu {
   left: 0;
-  background-color: #111 !important;
+  background-color: #040000d9;
+  color: black;
+  z-index: 10;
 }
 
 .carousel-item {
@@ -252,6 +262,14 @@ header {
 
 .backdrop-image {
   aspect-ratio: 18/10;
+}
+
+.menu-icon {
+  cursor: pointer;
+}
+
+.close-menu {
+  cursor: pointer;
 }
 
 @media (max-width: 992px) {
@@ -266,13 +284,13 @@ header {
   }
 
   .save-movie {
-    width: 53px;
-    height: 53px;
+    width: 43px;
+    height: 43px;
     top: 10px;
   }
 
   .save-movie span {
-    font-size: 30px !important;
+    font-size: 25px !important;
   }
 }
 

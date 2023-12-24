@@ -91,8 +91,8 @@ export default function Header() {
 
   return (
     <header className="w-100 py-3 px-2 d-flex flex-row align-items-center">
-      <section className="left-section-responsive menu d-block d-lg-none col-1">
-        <span onClick={alternateIsMenuOpened} className="fa-solid fa-bars fs-3"></span>
+      <section className="left-section-responsive-menu d-block d-lg-none col-1">
+        <span onClick={alternateIsMenuOpened} className="fa-solid menu-icon fa-bars fs-3"></span>
         {isMenuOpened && <>
           <section className="categories-menu position-absolute p-2 top-0 vh-100 d-flex flex-column z-2">
             <div className="title pb-3">

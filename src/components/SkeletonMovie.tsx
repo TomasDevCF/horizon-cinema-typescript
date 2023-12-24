@@ -6,7 +6,7 @@ interface Props {
 
 export default function SkeletonMovie({ isCastComponent }: Props) {
   return (
-    <div className="padding-container col-lg-2 col-md-4 col-sm-6 col-12 px-4 px-lg-1 py-1">
+    <div className="padding-container col-lg-2 col-md-4 col-6 px-1 py-1">
       <div className="position-relative movie w-100 p-0 overflow-hidden" >
         <div className="image-container d-flex justify-content-center align-items-center skeleton-image">
         </div>
