@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import {Result} from "../movies"
-import {useFetchMovie} from "./CustomHooks/useFetchMovie";
-import MoviesOption from "./components/MoviesOption";
+import { Result } from "../movies"
+import { useFetchMovie } from "./CustomHooks/useFetchMovie";
 import Carousel from "./components/Carousel";
+import MoviesCategories from "./components/MoviesCategories";
 
 export function calculateStars(rating: number, className: string = "fs-4"): JSX.Element[] {
   let stars: JSX.Element[] = []
@@ -18,7 +18,7 @@ export function calculateStars(rating: number, className: string = "fs-4"): JSX.
       break
     }
 
-    if (i <= rating || i <= rating + 1 && rating % (i - 1) > .50){
+    if (i <= rating || i <= rating + 1 && rating % (i - 1) > .50) {
       stars.push(<span className={`fa-solid fa-star text-warning ${className}`} key={i}></span>);
     } else if (rating % (i - 1) <= .50) {
       stars.push(<span className={`fa-solid fa-star-half-stroke text-warning ${className}`} key={i}></span>);
@@ -37,20 +37,15 @@ function HomePage() {
 
   useEffect(() => {
     useFetchMovie("https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=es-AR&page=1&sort_by=popularity.desc")
-      .then(r => setCarouselData(r.results.slice(0,3)))
+      .then(r => setCarouselData(r.results.slice(0, 3)))
   }, []);
 
   return (
     <main className="homepage">
-      <Carousel carouselData={carouselData}/>
-      <section className="other-options bg-transparent w-100 d-flex flex-column align-items-center pt-3">
-        <span className="fa-solid fa-arrow-down-long text-white fs-3"></span>
-        <div className="movies-options pt-1 pb-3 d-flex justify-content-around col-lg-10 row">
-          <MoviesOption URL='https://api.themoviedb.org/3/movie/top_rated?language=es-AR&page=1' topText="Peliculas mejores calificadas"  link="/movies/top_rated/1"/>
-          <MoviesOption URL='https://api.themoviedb.org/3/movie/popular?language=es-AR&page=1' topText="Peliculas mas populares" link="/movies/popular/1"/>
-          <MoviesOption URL='https://api.themoviedb.org/3/movie/upcoming?language=es-AR&page=1' topText="Peliculas de estreno" link="/movies/upcoming/1"/>
-        </div>
-      </section>
+      <Carousel carouselData={carouselData} />
+      <div className="pt-2">
+        <MoviesCategories URL="https://api.themoviedb.org/3/movie/popular?language=es-AR&page=1" link="/movies/popular/1" topText="Las peliculas mas populares" />
+      </div>
     </main>
   )
 }

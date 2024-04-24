@@ -36,23 +36,23 @@ export default function Carousel({ carouselData, pageType }: Props) {
 
   return (
 
-    <section className={`welcome-section position-relative h-100`}>
+    <section className={`welcome-section position-relative w-100 vh-100`}>
       <div id="moviescarousel" className="carousel slide w-100 h-100">
         <div className="carousel-inner w-100 h-100">
           {carouselData &&
             <>
               {carouselData[0]?.backdrop_path ? <div className="carousel-item active">
-                <img src={`https://image.tmdb.org/t/p/w1280/${carouselData[0].backdrop_path}`} className="d-block w-100" alt={carouselData[0].title} />
-              </div> :  <div className="vw-100 carousel-item">
+                <img loading="lazy" src={`https://image.tmdb.org/t/p/original${carouselData[0].backdrop_path}`} className="d-block w-100" alt={carouselData[0].title} />
+              </div> : <div className="vw-100 carousel-item">
                 <span className="fa-solid fa-image"></span>
               </div>}
               {carouselData[1]?.backdrop_path ? <div className="carousel-item">
-                <img src={`https://image.tmdb.org/t/p/w1280/${carouselData[1].backdrop_path}`} className="d-block w-100" alt={carouselData[1].title} />
-              </div> :  <div className="h-100 carousel-item">
+                <img loading="lazy" src={`https://image.tmdb.org/t/p/original${carouselData[1].backdrop_path}`} className="d-block w-100" alt={carouselData[1].title} />
+              </div> : <div className="h-100 carousel-item">
               </div>}
               {carouselData[2]?.backdrop_path ? <div className="carousel-item">
-                <img src={`https://image.tmdb.org/t/p/w1280/${carouselData[2].backdrop_path}`} className="d-block w-100" alt={carouselData[2].title} />
-              </div> :  <div className="vw-100 d-flex justify-content-center align-items-center carousel-item">
+                <img loading="lazy" src={`https://image.tmdb.org/t/p/original${carouselData[2].backdrop_path}`} className="d-block w-100" alt={carouselData[2].title} />
+              </div> : <div className="vw-100 d-flex justify-content-center align-items-center carousel-item">
                 <span className="fa-solid fa-image"></span>
               </div>}
             </>}
