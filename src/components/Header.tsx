@@ -95,9 +95,9 @@ export default function Header() {
         <span onClick={alternateIsMenuOpened} className="fa-solid menu-icon fa-bars fs-3 text-white"></span>
         {isMenuOpened && <>
           <section className="categories-menu position-absolute p-2 top-0 vw-100 d-flex flex-column z-2 align-items-center">
-            <Link onClick={savedLinkClick} className="fs-4 d-flex align-items-center text-white gap-2 text-decoration-none header-link" to="/saved/1"><span className="fa-regular fa-bookmark"></span> Guardados</Link>
-            <Link className="fs-4 d-flex align-items-center text-white gap-2 text-decoration-none header-link" to="/movies"><span className="fa-sharp fa-solid fa-film"></span> Cartelera</Link>
-            <p onClick={() => setCategoriesActived(!categoriesActived)} className="m-0 fs-4 d-flex align-items-center text-white gap-2 text-decoration-none header-link position-relative">
+            <Link onClick={savedLinkClick} className="fs-4 d-flex align-items-center text-black gap-2 text-decoration-none header-link" to="/saved/1"><span className="fa-regular fa-bookmark"></span> Guardados</Link>
+            <Link className="fs-4 d-flex align-items-center text-black gap-2 text-decoration-none header-link" to="/movies"><span className="fa-sharp fa-solid fa-film"></span> Cartelera</Link>
+            <p onClick={() => setCategoriesActived(!categoriesActived)} className="m-0 fs-4 d-flex align-items-center text-black gap-2 text-decoration-none header-link position-relative">
               <span className={`fa-solid fa-caret-${categoriesActived ? "up" : "down"}`}></span> Categorías
               {categoriesActived && <div className="categories position-absolute rounded d-flex flex-column align-items-center px-2 py-2">
                 {categories && categories.genres.map(genre => {
@@ -105,7 +105,6 @@ export default function Header() {
                 })}
               </div>}
             </p>
-
           </section>
           <div className="close-menu position-absolute vh-100 vw-100 top-0 categories-menu bg-transparent z-1" onClick={alternateIsMenuOpened}>
           </div>

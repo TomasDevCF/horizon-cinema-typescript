@@ -33,6 +33,8 @@ header {
   cursor: pointer;
 }
 
+
+
 .header-link {
   transition: .1s ease-in-out color;
 }
@@ -253,9 +255,14 @@ header {
 
 .categories-menu {
   left: 0;
-  background: linear-gradient(180deg, #00000075, transparent);
-  color: black;
+  background: white;
+  color: black !important;
   z-index: 10;
+  gap: 8px;
+}
+
+.categories-menu p {
+  cursor: pointer;
 }
 
 .carousel-item {
@@ -311,5 +318,3 @@ header {
     text-overflow: clip;
   }
 }
-
-@media (min-height: 1000px) {}
