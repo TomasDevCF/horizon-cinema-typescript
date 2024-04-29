@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ruta-simple.vercel.app/sitemap-index.xml
+Sitemap: https://tomasdevcf.github.io/horizon-cinema-typescript/sitemap-index.xml
